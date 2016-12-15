@@ -10,7 +10,8 @@ shinyServer(function(input, output, session) {
   
   In <- reactive({
     print(input$Outdir)
-    outdir <- paste0("~/",input$Outdir[[1]][[2]],"/")
+    #outdir <- paste0("~/",input$Outdir[[1]][[2]],"/")
+    outdir <- paste0("~",do.call("file.path",input$Outdir[[1]]),"/")
     print(outdir)
     
     # Compose data frame
